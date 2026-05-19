@@ -1,0 +1,505 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 80px);
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+@font-face {
+  font-family: "Benton Sans BBVA-Bold";
+  src: url(fonts/BentonSansBBVA-Bold.ttf);
+}
+@font-face {
+  font-family: "Benton Sans BBVA";
+  src: url(fonts/BentonSansBBVA-Book.ttf);
+}
+@font-face {
+  font-family: "Benton Sans BBVA-Med";
+  src: url(fonts/BentonSansBBVA-Medium.ttf);
+}
+
+body {
+  background: #f7f8f8;
+  font-family: "Benton Sans BBVA", Arial, Helvetica, sans-serif;
+}
+
+.general-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  z-index: 12;
+  margin: 0;
+}
+
+.content-footer,
+.head-content,
+.wrapper {
+  max-width: 1224px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.wrapper {
+  display: block;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  box-shadow: 0 4px 4px 0 rgb(18 18 18 / 0.04), 0 1px 3px 0 rgb(39 41 45 / 0.02);
+  background-color: #fff;
+  z-index: 3;
+  width: 100%;
+  border-radius: 16px;
+  margin: 24px 0 0;
+}
+
+.head-content {
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("data:image/svg+xml;utf8,<svg width='80' height='24' viewBox='0 0 80 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M57.6292 3.25257L50.7488 16.3568C50.6022 16.6371 50.1755 16.6371 50.0288 16.3568L43.1484 3.25257C43.0817 3.11913 42.9484 3.03906 42.8017 3.03906H39.4682C39.2415 3.03906 39.0949 3.27926 39.2015 3.47943L50.0421 23.7897C50.1888 24.0699 50.5888 24.0699 50.7488 23.7897L61.5894 3.47943C61.6961 3.27926 61.5494 3.03906 61.3228 3.03906H57.9892C57.8292 3.03906 57.6959 3.11913 57.6292 3.25257Z' fill='%23001391'/><path d='M61.5367 20.7473L68.4171 7.64303C68.5638 7.3628 68.9905 7.3628 69.1372 7.64303L76.0176 20.7473C76.0842 20.8807 76.2176 20.9608 76.3643 20.9608H79.6978C79.9245 20.9608 80.0711 20.7206 79.9645 20.5204L69.1238 0.210175C68.9772 -0.0700584 68.5771 -0.0700584 68.4171 0.210175L57.5765 20.5204C57.4699 20.7206 57.6165 20.9608 57.8432 20.9608H61.1767C61.3234 20.9475 61.4701 20.8674 61.5367 20.7473Z' fill='%23001391'/><path d='M14.5075 12.7006C15.9476 11.98 16.8409 10.4187 16.8409 8.51045C16.8409 5.24106 14.2941 3.02588 10.7073 3.02588H0.400023C0.173343 3.02588 0 3.19936 0 3.42621V23.5897C0 23.8165 0.173343 23.99 0.400023 23.99H10.2672C15.2009 23.99 17.801 21.8682 17.801 17.7048C17.801 13.6481 14.5075 12.7006 14.5075 12.7006ZM3.86688 6.06841H9.98723C12.2407 6.06841 13.3874 7.02921 13.3874 8.81737C13.3874 10.6055 12.2407 11.5663 9.98723 11.5663H3.86688C3.65354 11.5663 3.46686 11.3929 3.46686 11.166V6.46875C3.46686 6.24189 3.6402 6.06841 3.86688 6.06841ZM10.0672 20.9475H3.86688C3.6402 20.9475 3.46686 20.774 3.46686 20.5471V14.9825C3.46686 14.769 3.6402 14.5822 3.86688 14.5822H10.0672C13.0274 14.5822 14.3475 15.4229 14.3475 17.7582C14.3341 20.1201 13.0541 20.9475 10.0672 20.9475Z' fill='%23001391'/><path d='M35.6693 12.7006C37.1093 11.98 38.0027 10.4187 38.0027 8.51045C38.0027 5.24106 35.4559 3.02588 31.869 3.02588H21.5485C21.3218 3.02588 21.1484 3.19936 21.1484 3.42621V23.5897C21.1484 23.8165 21.3218 23.99 21.5485 23.99H31.4157C36.3493 23.99 38.9494 21.8682 38.9494 17.7048C38.9628 13.6481 35.6693 12.7006 35.6693 12.7006ZM25.0287 6.06841H31.149C33.4025 6.06841 34.5492 7.02921 34.5492 8.81737C34.5492 10.6055 33.4025 11.5663 31.149 11.5663H25.0287C24.802 11.5663 24.6286 11.3929 24.6286 11.166V6.46875C24.6286 6.24189 24.802 6.06841 25.0287 6.06841ZM31.2157 20.9475H25.0153C24.802 20.9475 24.6153 20.774 24.6153 20.5471V14.9825C24.6153 14.769 24.7886 14.5822 25.0153 14.5822H31.2157C34.1758 14.5822 35.4959 15.4229 35.4959 17.7582C35.4959 20.1201 34.2025 20.9475 31.2157 20.9475Z' fill='%23001391'/></svg>");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-origin: content-box;
+  padding: 0 20px;
+}
+
+.navbar__logo {
+  display: none;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__img-btn {
+  height: 26.5px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.navbar__img-btn:hover {
+  opacity: 0.75;
+}
+
+/* SECURITY BAR */
+.security-bar {
+  display: flex;
+  align-items: center;
+  background: #f7f8f8;
+  width: 100%;
+  max-width: 1224px;
+  margin: 18px auto 0;
+  padding-left: calc((100vw - 1224px) / 2 - 120px);
+}
+
+.security-bar__img {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* MAIN */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 25px;
+  max-width: 1224px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0;
+}
+
+/* LOGIN CARD */
+.login-card {
+  width: 808px;
+  min-height: 264px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 8px 24px 32px;
+}
+
+h1,
+.welcome-title {
+  font-family: "Tiempos Headline Bold", "Playfair Display", Georgia, serif;
+  font-size: 36px;
+  color: #070e46;
+  margin-top: 16px;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+
+/* INPUT */
+.input-group {
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  max-width: calc(100% - 3rem);
+  width: 392px;
+}
+
+.input-label {
+  position: absolute;
+  color: #666;
+  font-size: 16px;
+  left: 16px;
+  top: 19px;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper--small {
+  width: 100%;
+}
+
+.input-field {
+  font-family: "Benton Sans BBVA", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: 1px solid #47536d;
+  padding: 0 0.25rem 0 1rem;
+  display: block;
+  background: #f4f4f4;
+  color: #070e46;
+  width: 100%;
+  height: 56px;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+  text-align: left;
+  line-height: 56px;
+}
+
+.input-field:focus {
+  border-color: #001392;
+}
+
+.input-field.error {
+  border-color: #c30a0a;
+  color: #c30a0a;
+}
+
+/* ICONO OJO */
+.toggle-visibility {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* BOTONES */
+.btn-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.btn-primary,
+.btn-link {
+  font-family: "Benton Sans BBVA-Med", Arial, Helvetica, sans-serif;
+}
+
+.btn-primary {
+  min-width: 128px;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  background: #001392;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #070e46;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: #001392;
+  font-size: 15px;
+  margin-left: 16px;
+}
+
+.btn-link:hover {
+  color: #070e46;
+}
+
+/* ERROR */
+.error-msg {
+  display: flex;
+  align-items: center; /* ← centra icono con texto */
+  gap: 8px;
+  font-size: 14px;
+  color: #121212;
+  margin: 8px 0 16px 16px;
+}
+
+.error-icon {
+  display: flex;
+  align-items: center;
+}
+
+.error-icon svg {
+  width: 16px;
+  height: 14px;
+  fill: #c30a0a; /* ← rojo BBVA */
+  flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.input-field.error {
+  border-color: #c30a0a;
+  color: #c30a0a;
+}
+
+.input-field.error::placeholder {
+  color: #c30a0a;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* PANEL SEGURIDAD */
+.security-panel {
+  background-color: #fff5e5;
+  border-radius: 16px;
+  width: 392px;
+  min-height: 208px;
+  padding: 24px 24px 24px 48px;
+  background-image: url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9.10039 14.7999C9.10039 14.3029 9.50339 13.8999 10.0004 13.8999C10.4974 13.8999 10.9004 14.3029 10.9004 14.7999C10.9004 15.2969 10.4974 15.6999 10.0004 15.6999C9.50339 15.6999 9.10039 15.2969 9.10039 14.7999ZM19.6004 9.9999C19.6004 4.7069 15.2934 0.399902 10.0004 0.399902C4.70739 0.399902 0.400391 4.7069 0.400391 9.9999C0.400391 15.2929 4.70739 19.5999 10.0004 19.5999C15.2934 19.5999 19.6004 15.2929 19.6004 9.9999ZM18.0004 9.9999C18.0004 14.4109 14.4114 17.9999 10.0004 17.9999C5.58939 17.9999 2.00039 14.4109 2.00039 9.9999C2.00039 5.5889 5.58939 1.9999 10.0004 1.9999C14.4114 1.9999 18.0004 5.5889 18.0004 9.9999ZM10.8004 4.3999H9.20039V12.2999H10.8004V4.3999Z' fill='%23B98409'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 24px 37px;
+  display: block;
+}
+
+.security-panel__icon {
+  display: none;
+}
+
+.security-panel__title {
+  font-family: "Benton Sans BBVA-Med", Arial, Helvetica, sans-serif;
+  font-size: 15.01px;
+  font-weight: 500;
+  color: #121212;
+  margin-bottom: 8px;
+}
+
+.security-panel__text {
+  font-size: 15.01px;
+  color: #121212;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.security-panel__link {
+  font-family: "Benton Sans BBVA-Med", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: #001392;
+}
+
+.security-panel__link:hover {
+  color: #070e46;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 300px;
+}
+
+.modal-title {
+  margin: 15px 0;
+  color: #070e46;
+}
+
+.modal-text {
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer,
+.footer {
+  height: auto;
+  background-color: #001391;
+  border-radius: 15px;
+  margin: 48px auto 20px;
+}
+
+.content-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 49px 20px 40px;
+  background: url('data:image/svg+xml;utf8,<svg width="107" height="32" viewBox="0 0 107 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M76.9004 4.33693L67.7194 21.8093C67.5237 22.1829 66.9544 22.1829 66.7586 21.8093L57.5777 4.33693C57.4887 4.159 57.3108 4.05225 57.1151 4.05225H52.6669C52.3644 4.05225 52.1687 4.37251 52.3111 4.6394L66.7764 31.7197C66.9722 32.0934 67.5059 32.0934 67.7194 31.7197L82.1848 4.6394C82.3272 4.37251 82.1315 4.05225 81.829 4.05225H77.3808C77.1673 4.05225 76.9894 4.159 76.9004 4.33693Z" fill="white"/><path d="M82.113 27.6631L91.294 10.1907C91.4897 9.81707 92.0591 9.81707 92.2548 10.1907L101.436 27.6631C101.525 27.841 101.703 27.9477 101.898 27.9477H106.347C106.649 27.9477 106.845 27.6275 106.702 27.3606L92.237 0.280234C92.0413 -0.0934112 91.5075 -0.0934112 91.294 0.280234L76.8286 27.3606C76.6863 27.6275 76.882 27.9477 77.1845 27.9477H81.6326C81.8284 27.9299 82.0241 27.8232 82.113 27.6631Z" fill="white"/><path d="M19.3584 16.9343C21.28 15.9735 22.4721 13.8918 22.4721 11.3474C22.4721 6.98824 19.0737 4.03467 14.2875 4.03467H0.533778C0.231304 4.03467 0 4.26597 0 4.56845V31.4531C0 31.7555 0.231304 31.9868 0.533778 31.9868H13.7003C20.2836 31.9868 23.7531 29.1578 23.7531 23.6065C23.7531 18.1976 19.3584 16.9343 19.3584 16.9343ZM5.15986 8.09138H13.3267C16.3336 8.09138 17.8638 9.37245 17.8638 11.7567C17.8638 14.1409 16.3336 15.4219 13.3267 15.4219H5.15986C4.87517 15.4219 4.62608 15.1906 4.62608 14.8882V8.62516C4.62608 8.32269 4.85738 8.09138 5.15986 8.09138ZM13.4334 27.9301H5.15986C4.85738 27.9301 4.62608 27.6988 4.62608 27.3964V19.9768C4.62608 19.6922 4.85738 19.4431 5.15986 19.4431H13.4334C17.3834 19.4431 19.1448 20.564 19.1448 23.6777C19.1271 26.827 17.419 27.9301 13.4334 27.9301Z" fill="white"/><path d="M47.5949 16.9343C49.5165 15.9735 50.7086 13.8918 50.7086 11.3474C50.7086 6.98824 47.3102 4.03467 42.524 4.03467H28.7525C28.4501 4.03467 28.2188 4.26597 28.2188 4.56845V31.4531C28.2188 31.7555 28.4501 31.9868 28.7525 31.9868H41.9191C48.5023 31.9868 51.9719 29.1578 51.9719 23.6065C51.9897 18.1976 47.5949 16.9343 47.5949 16.9343ZM33.3964 8.09138H41.5632C44.5702 8.09138 46.1003 9.37245 46.1003 11.7567C46.1003 14.1409 44.5702 15.4219 41.5632 15.4219H33.3964C33.0939 15.4219 32.8626 15.1906 32.8626 14.8882V8.62516C32.8626 8.32269 33.0939 8.09138 33.3964 8.09138ZM41.6522 27.9301H33.3786C33.0939 27.9301 32.8448 27.6988 32.8448 27.3964V19.9768C32.8448 19.6922 33.0761 19.4431 33.3786 19.4431H41.6522C45.6021 19.4431 47.3636 20.564 47.3636 23.6777C47.3636 26.827 45.6377 27.9301 41.6522 27.9301Z" fill="white"/></svg>')
+    left top / 107px 32px no-repeat content-box border-box;
+  min-height: 352px;
+}
+
+.footer__logo {
+  display: none;
+}
+
+.footer_list {
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.footer_list ul {
+  padding: 0;
+}
+
+.footer_list ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer__links {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.footer__links a {
+  font-family: "Benton Sans BBVA", Arial, Helvetica, sans-serif;
+  font-size: 15.01px;
+  font-weight: 500;
+  color: #85c8ff;
+  text-decoration: none;
+  margin-right: 20px;
+  line-height: 24px;
+  transition: color 0.15s;
+}
+
+.footer__links--sub {
+  margin-top: 4px;
+}
+
+.footer__links a:hover {
+  color: #fff;
+}
+
+.footer__legal {
+  font-family: "Benton Sans BBVA", Arial, Helvetica, sans-serif;
+  font-size: 15.01px;
+  font-weight: 350;
+  color: #fff;
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 730px) {
+  .general-wrapper {
+    min-width: 311px;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .login-card,
+  footer,
+  .footer {
+    height: auto;
+  }
+
+  .login-card,
+  .security-panel {
+    width: 100%;
+  }
+
+  .content-footer {
+    background-position: top center;
+    text-align: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .btn-link {
+    margin-left: 0;
+  }
+
+  .input-group {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .input-field {
+    max-width: 100%;
+  }
+}
